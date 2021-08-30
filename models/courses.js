@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const CoursesSchema = new Schema({
-    index: Number,
+    index: String,
     state: String,
     term: String,
     t_school: String,
@@ -12,7 +12,7 @@ const CoursesSchema = new Schema({
     t_mingrade: String,
     gt_class: String,
     gt_title: String,
-    gt_ch: Number
+    gt_ch: String
 })
 
 module.exports = mongoose.model('Courses', CoursesSchema)
