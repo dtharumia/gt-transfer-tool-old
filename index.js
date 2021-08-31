@@ -1,4 +1,5 @@
 const express = require('express');
+const ejsMate = require('ejs-mate');
 const path = require('path');
 const mongoose = require('mongoose');
 const Courses = require('./models/courses')
@@ -14,8 +15,9 @@ db.once('open', () => {
 
 app.use(express.urlencoded({ extended: true }));
 
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'))
 
 app.get('/', async (req, res) => {
     res.render('home')
