@@ -23,12 +23,17 @@ app.get('/', async (req, res) => {
     res.render('home')
 })
 
-app.post('/', async (req, res) => {
-    gt_course = req.body.class
-    const courses = await Courses.find({ 'gt_class': gt_course });
-    // res.render('home', { courses })
-    console.log({ courses })
-    res.render('courses', { courses })
+app.get('/search', (req, res) => {
+    res.render('search')
+})
+
+app.post('/courses', (req, res) => {
+    // gt_class = req.body.class
+    // const courses = await Courses.find({ 'gt_class': gt_course });
+    // // res.render('home', { courses })
+    // console.log({ courses })
+    res.send(req.body)
+    // res.render('courses', { courses })
 })
 
 app.listen(3000, () => {
